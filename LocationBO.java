@@ -1,61 +1,5 @@
 /**
- * This Action class is used to to capture the Location Information
- * 
- * @author Cognizant
- * @contact Cognizant
- * @version 1.0
- */
-package com.cts.insurance.homequote.bo;
-
-import com.cts.insurance.homequote.dao.LoginDAO;
-import com.cts.insurance.homequote.exception.HomequoteBusinessException;
-import com.cts.insurance.homequote.exception.HomequoteSystemException;
-import com.cts.insurance.homequote.model.User;
-
-public class LoginBO {
-
-	/**
-	 * @param userName
-	 * @param password
-	 * @return
-	 * @throws HomequoteSystemException 
-	 */
-	
-	public User getUser(final String userName) throws HomequoteBusinessException{
-		
-		User user = new User();
-		final LoginDAO loginDAO = new LoginDAO();
-		try {
-			user = loginDAO.getUser(userName);
-		} catch (HomequoteSystemException e) {
-			throw new HomequoteBusinessException(e.getMessage());
-		}
-		return user;
-	}
-	 
-	/**
-	 * registerUser
-	 * @param user
-	 * @throws HomequoteBusinessException
-	 */
-	public void registerUser(final User user) throws HomequoteBusinessException{
-		
-		final LoginDAO loginDAO = new LoginDAO();
-		try {
-			loginDAO.saveUser(user);
-		} catch (HomequoteSystemException e) {
-			throw new HomequoteBusinessException(e.getMessage());
-		}
-	}
-}
-
-
-
-Collapse 
-
-9:33 AM
-LocationBO.java 
-/**
+ /**
  * This Business Object class is used to for Location Information
  * 
  * @author Cognizant
@@ -80,14 +24,16 @@ public class LocationBO {
 	 * @throws HomequoteBusinessException
 	 */
 	public int saveHomeLocation(final Location location) throws HomequoteBusinessException{
-		int locationInt = 0;
 		final LocationDAO locationDAO = new LocationDAO();
+		System.out.println("System got into LocationBO line 28 and has object value of "+location);
+		int quoteId = 0;
 		try {
-			locationInt = locationDAO.saveLocation(location);
+			
+			 quoteId = locationDAO.saveLocation(location);
 			} catch (HomequoteSystemException e) {
 				throw new HomequoteBusinessException(e.getMessage());		
 		}
-		return locationInt;
+		return quoteId;
 	}
 	
 	/**
