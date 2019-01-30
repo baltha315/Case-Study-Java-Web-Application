@@ -1,10 +1,3 @@
-/**
- * This Business Object class is used to for Homeowner Information
- * 
- * @author Cognizant
- * @contact Cognizant
- * @version 1.0
- */
 package com.cts.insurance.homequote.bo;
 
 import com.cts.insurance.homequote.dao.HomeownerDAO;
@@ -14,15 +7,6 @@ import com.cts.insurance.homequote.model.Homeowner;
 
 public class HomeownerBO {
 
-	/**
-	 * @param quoteId
-	 * @param lastName
-	 * @param dob
-	 * @param emailAddress
-	 * @return
-	 * @throws HomequoteBusinessException
-	 * @throws HomequoteSystemException 
-	 */
 	public Homeowner getHomeownerInfo(final int quoteId) throws HomequoteBusinessException{
 		Homeowner homeowner = null;
 		final HomeownerDAO HomeownerDAO = new HomeownerDAO();
