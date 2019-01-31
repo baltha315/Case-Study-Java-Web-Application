@@ -1,10 +1,4 @@
-/**
- * Servlet for capturing Location Information
- * 
- * @author Cognizant
- * @contact Cognizant
- * @version 1.0
- */
+
 package com.cts.insurance.homequote.servlet;
 
 import java.io.IOException;
